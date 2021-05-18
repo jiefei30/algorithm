@@ -1,12 +1,10 @@
-package lanqiao.a入门训练
-
-·;
+package lanqiao.a入门训练;
 /**
- * ººÅµËş
+ * 汉诺塔
  */
 import java.util.Scanner;
 
-public class ººÅµËş {
+public class 汉诺塔 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("ÇëÊäÈëººÅµËşµÄ²ãÊı");

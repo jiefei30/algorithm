@@ -12,7 +12,7 @@ public class A206 {
 }
 
 
-class Solution {
+class Solution206 {
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;

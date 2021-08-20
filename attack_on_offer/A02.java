@@ -52,11 +52,11 @@ public static void main(String[] args) {
         long a = sc.nextInt();
         long b = sc.nextInt();
         long min = 0;
-        if (x < 2) {
-            min = -1;
-        }else {
-
-        }
+//        if (x < 2) {
+//            min = -1;
+//        }else {
+//
+//        }
         long max = Math.abs(a-b);
 
     }

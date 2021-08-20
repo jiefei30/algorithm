@@ -15,9 +15,9 @@ public class FullArrangement {
 		if(k==arr.length) count++;
 		else {
 			for(int i=k;i<arr.length;i++) {
-				swap(k,i);      //����
-				dfs(k+1);		//�ݹ�
-				swap(k,i);      //����
+				swap(k,i);
+				dfs(k+1);
+				swap(k,i);
 			}
 		}
 	}

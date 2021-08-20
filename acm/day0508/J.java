@@ -3,71 +3,56 @@ package acm.day0508;
 import java.util.*;
 
 public class J {
+	static char[][] ops = new char[5][2];
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		List<String[]> list  = new ArrayList<>();
 		for (int i = 0; i < 5;i++) {
 			String op = sc.next();
-			String[] ops = new String[2];
 			if (op.charAt(1) == '>') {
-				ops[0] = op.charAt(0)+"";
-				ops[1] = op.charAt(2)+"";
+				ops[i][0] = op.charAt(0);
+				ops[i][1] = op.charAt(2);
 			}else{
-				ops[0] = op.charAt(2)+"";
-				ops[1] = op.charAt(0)+"";
+				ops[i][0] = op.charAt(2);
+				ops[i][1] = op.charAt(0);
 			}
-			list.add(ops);
 		}
-		boolean flag = false;
-		List<String> res = new ArrayList<>();
-		while (list.size() > 0) {
-			List<String> abcde = new ArrayList<>();
-			abcde.add("A");
-			abcde.add("B");
-			abcde.add("C");
-			abcde.add("D");
-			abcde.add("E");
-			for (int i = 0; i < res.size();i++) {
-				for (int j = 0; j < abcde.size();j++) {
-					if (res.get(i).equals(abcde.get(j))) {
-						abcde.remove(j);
-					}else {
-						j++;
-					}
+		perm(new char[]{'A','B','C','D','E'},0,4);
+		System.out.println("impossible");
+	}
+
+	public static void perm(char[] array, int start, int end) {
+		for (int i = start; i <= end; i++) {
+			if (check(array)) {
+				for (int j = 0; j < 5; j++) {
+					System.out.print(array[4-j]);
 				}
+				System.exit(0);
 			}
-			for (int i = 0; i < list.size();i++) {
-				for (int j = 0; j < abcde.size();) {
-					if (abcde.get(j).equals(list.get(i)[0])) {
-						abcde.remove(j);
-					}else{
-						j++;
-					}
-				}
-			}
-			if (res.size() == 3) {
-				res.add(list.get(0)[1]);
-				res.add(list.get(0)[0]);
-				break;
-			}
-			if (abcde.size() > 1) {
-				flag = true;
-				break;
-			}
-			res.add(abcde.get(0));
-			for (int i = 0; i < list.size();) {
-				if (list.get(i)[1].equals(res.get(res.size()-1))) {
-					list.remove(i);
-				}else{
-					i++;
+			swap(array,start,i);
+			perm(array,start+1,end);
+			swap(array,start,i);
+		}
+	}
+
+	public static void swap(char[] array,int i,int j) {
+		char temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
+
+	public static boolean check(char[] array) {
+		boolean flag = true;
+		String s = new String(array);
+		for (int i = 0; i < 5; i++) {
+			int first = s.indexOf(ops[i][0]);
+			if (first > -1) {
+				int end = s.indexOf(ops[i][1], first+1);
+				if (end < 0) {
+					flag = false;
+					break;
 				}
 			}
 		}
-		if (flag) {
-			System.out.println("impossible");
-		}
-		for (int i = 0; i < res.size();i++) {
-			System.out.print(res.get(i));
-		}
+		return flag;
 	}
 }

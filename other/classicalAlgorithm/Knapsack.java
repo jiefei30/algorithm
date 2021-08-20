@@ -16,6 +16,7 @@ public class Knapsack {
 				}
 			}
 		}
+		//输出背包
 		for(int i=0;i<6;i++) {
 			for(int j=0;j<21;j++) {
 				if (j > 9 && i < 3) {

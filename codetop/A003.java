@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author Wangmingcan
  * @date 2021/8/20 9:31
- * @description 无重复字符的最长子串
+ * @description 无重复字符的最长子串 （滑动窗口）
  */
 public class A003 {
     public static void main(String[] args) {

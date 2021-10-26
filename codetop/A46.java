@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Wangmingcan
  * @date 2021/10/26 13:36
- * @description
+ * @description 全排列
  */
 public class A46 {
     public static void main(String[] args) {

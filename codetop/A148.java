@@ -13,29 +13,27 @@ public class A148 {
     class Solution {
 
         public ListNode sortList(ListNode head) {
-            if (head == null || head.next == null) {
-                return head;
-            }
-            int length = 0;
-            ListNode temp = head;
-            while (temp != null) {
-                length++;
-                temp = temp.next;
-            }
-            int subLength = 1;
-            while (subLength < length) {
+            return sort(head, null);
+        }
 
+        private ListNode sort(ListNode start, ListNode end) {
+            if (start == end) {
+                return start;
             }
-
-            return null;
+            ListNode fast = start, slow = start;
+            while (fast != end && fast.next != end) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            ListNode l2 = sort(slow.next, end);
+            slow.next = null;
+            ListNode l1 = sort(start, slow);
+            return mergeTwoLists(l1, l2);
         }
 
         public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-            if (l1 == null) {
-                return l2;
-            }
-            if (l2 == null) {
-                return l1;
+            if (l1 == null || l2 == null) {
+                return l1 == null ? l2 : l1;
             }
             if (l1.val < l2.val) {
                 l1.next = mergeTwoLists(l1.next, l2);

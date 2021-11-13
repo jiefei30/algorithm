@@ -8,7 +8,7 @@ import java.util.Set;
  * @date 2021/8/20 9:31
  * @description 无重复字符的最长子串 （滑动窗口）
  */
-public class A003 {
+public class A3 {
     public static void main(String[] args) {
         System.out.println(new Solution().lengthOfLongestSubstring("abca"));
     }

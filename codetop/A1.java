@@ -8,7 +8,7 @@ import java.util.Map;
  * @date 2021/8/31 21:49
  * @description 两数之和 （哈希表）
  */
-public class A001 {
+public class A1 {
     public static void main(String[] args) {
 
     }

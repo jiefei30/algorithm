@@ -11,7 +11,7 @@ public class A543 {
     }
 
     class Solution {
-        private int res = 0;.
+        private int res = 0;
         public int diameterOfBinaryTree(TreeNode root) {
             height(root);
             return res-1;

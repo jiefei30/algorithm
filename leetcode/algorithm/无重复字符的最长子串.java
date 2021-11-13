@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.algorithm;
 
 public class 无重复字符的最长子串 {
 	public static void main(String[] args) {

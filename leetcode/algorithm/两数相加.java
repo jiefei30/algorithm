@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.algorithm;
 
 import java.math.BigInteger;
 

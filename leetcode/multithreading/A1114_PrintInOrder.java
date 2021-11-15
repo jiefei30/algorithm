@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2021/11/13 19:49
  * @description 按序打印
  */
-public class A1114 {
+public class A1114_PrintInOrder {
 
     public static void main(String[] args) {
 

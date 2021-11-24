@@ -1,5 +1,7 @@
 package other.classicalAlgorithm;
 
+import java.util.Random;
+
 /**
  * @author Wangmingcan
  * @date 2021/11/15 21:04
@@ -41,6 +43,46 @@ public class QuickSort {
             }
             nums[low] = pivot;
             return low;
+        }
+    }
+
+    class solution2 {
+        public int[] sort(int[] nums) {
+            randomizedQuicksort(nums, 0, nums.length - 1);
+            return nums;
+        }
+
+        public void randomizedQuicksort(int[] nums, int l, int r) {
+            if (l < r) {
+                int pos = randomizePartition(nums, l, r);
+                randomizedQuicksort(nums, l, pos -1);
+                randomizedQuicksort(nums, pos + 1, r);
+            }
+        }
+
+        public int randomizePartition(int[] nums, int l, int r) {
+            int i = new Random().nextInt(r - l + 1) + l;
+            swap(nums, r, i);
+            return partition(nums, l, r);
+        }
+
+        public int partition(int[] nums, int l, int r) {
+            int pivot = nums[r];
+            int i = l - 1;
+            for (int j = l; j <= r - 1; j++) {
+                if (nums[j] <= pivot) {
+                    i++;
+                    swap(nums, i, j);
+                }
+            }
+            swap(nums, i + 1, r);
+            return i + 1;
+        }
+
+        public void swap(int[] nums, int i, int j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
         }
     }
 }

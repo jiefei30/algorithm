@@ -9,10 +9,10 @@ import java.util.Random;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] nums = new int[]{1,3,2,7,5,4,19,12,6,10};
+        int[] nums = new int[]{1, 3, 2, 7, 5, 4, 19, 12, 6, 10};
         new Solution().QuickSort(nums);
         for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i]+" ");
+            System.out.print(nums[i] + " ");
         }
     }
 
@@ -41,7 +41,7 @@ public class QuickSort {
                 }
                 nums[high] = nums[low];
             }
-            nums[low] = pivot;
+
             return low;
         }
     }
@@ -55,7 +55,7 @@ public class QuickSort {
         public void randomizedQuicksort(int[] nums, int l, int r) {
             if (l < r) {
                 int pos = randomizePartition(nums, l, r);
-                randomizedQuicksort(nums, l, pos -1);
+                randomizedQuicksort(nums, l, pos - 1);
                 randomizedQuicksort(nums, pos + 1, r);
             }
         }

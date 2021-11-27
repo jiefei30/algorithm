@@ -1,4 +1,4 @@
-package interview;
+package interview.shufenkeji;
 
 import java.util.Arrays;
 

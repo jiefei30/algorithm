@@ -55,6 +55,33 @@ public class A102 {
         }
     }
 
+    class Solution2 {
+        public List<List<Integer>> levelOrder(TreeNode root) {
+            List<List<Integer>> res = new ArrayList<>();
+            if (root == null) {
+                return res;
+            }
+            ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                List<Integer> level = new ArrayList<>();
+                int curLevelSize = queue.size();
+                for (int i = 0; i < curLevelSize; i++) {
+                    TreeNode node = queue.poll();
+                    level.add(node.val);
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.offer(node.right);
+                    }
+                }
+                res.add(level);
+            }
+            return res;
+        }
+    }
+
 
     public class TreeNode {
        int val;

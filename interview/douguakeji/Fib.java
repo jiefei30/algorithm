@@ -1,4 +1,4 @@
-package interview;
+package interview.douguakeji;
 
 import java.util.Arrays;
 

@@ -12,9 +12,18 @@ public class A918 {
 
     class Solution {
         public int maxSubarraySumCircular(int[] nums) {
-            int res = 0;
-
-            return res;
+            int len = nums.length;
+            int max = nums[0], dp = max, sum = max, min = 0;
+            for (int i = 1; i < len; i++) {
+                sum += nums[i];
+                dp = nums[i] + Math.max(dp, 0);
+                max = Math.max(max, dp);
+            }
+            for (int i = 1; i < len - 1; i++) {
+                dp = nums[i] + Math.min(0, dp);
+                min = Math.min(min, dp);
+            }
+            return Math.max(sum - min, max);
         }
     }
 }

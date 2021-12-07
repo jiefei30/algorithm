@@ -1,6 +1,7 @@
 package other.classicalAlgorithm;
 
 import java.util.Random;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author Wangmingcan
@@ -43,6 +44,10 @@ public class QuickSort {
             }
 
             return low;
+        }
+
+        public int partition2(int[] nums, int low, int high) {
+            return -1;
         }
     }
 

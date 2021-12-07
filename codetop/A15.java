@@ -13,34 +13,31 @@ import java.util.List;
  * 这个做法的时间复杂度和空间复杂度都很高
  * 最优解：排序+双指针
  *
- *
- *
  * 算法流程：
- * 特判，对于数组长度 nn，如果数组为 nullnull 或者数组长度小于 33，返回 [][]。
+ * 特判，对于数组长度 n，如果数组为 null 或者数组长度小于 3，返回 []。
  * 对数组进行排序。
  * 遍历排序后数组：
- * 若 nums[i]>0nums[i]>0：因为已经排序好，所以后面不可能有三个数加和等于 00，直接返回结果。
+ * 若 nums[i]>0：因为已经排序好，所以后面不可能有三个数加和等于 0，直接返回结果。
  * 对于重复元素：跳过，避免出现重复解
- * 令左指针 L=i+1L=i+1，右指针 R=n-1R=n−1，当 L<RL<R 时，执行循环：
- * 当 nums[i]+nums[L]+nums[R]==0nums[i]+nums[L]+nums[R]==0，执行循环，判断左界和右界是否和下一位置重复，去除重复解。并同时将 L,RL,R 移到下一位置，寻找新的解
- * 若和大于 00，说明 nums[R]nums[R] 太大，RR 左移
- * 若和小于 00，说明 nums[L]nums[L] 太小，LL 右移
+ * 令左指针 L=i+1，右指针 R=n-1，当 L<R 时，执行循环：
+ * 当 nums[i]+nums[L]+nums[R]==0，执行循环，判断左界和右界是否和下一位置重复，去除重复解。并同时将 L,R 移到下一位置，寻找新的解
+ * 若和大于 0，说明 nums[R] 太大，R 左移
+ * 若和小于 0，说明 nums[L] 太小，L 右移
  */
 public class A15 {
     public static void main(String[] args) {
         int[] nums = new int[]{-1,0,1,2,-1,-4};
         List<List<Integer>> result = new Solution().threeSum(nums);
-        for (int i = 0; i < result.size(); i++) {
-            List<Integer> list = result.get(i);
-            for (int j = 0; j < list.size(); j++) {
-                System.out.print(list.get(j) + " ");
+        for (List<Integer> list : result) {
+            for (Integer integer : list) {
+                System.out.print(integer + " ");
             }
             System.out.println();
         }
     }
 
     static class Solution {
-        public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> threeSum(int[] nums) {
             Arrays.sort(nums);
             List<List<Integer>> result = new ArrayList<>();
             int lastA = -9999999;

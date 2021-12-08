@@ -1,4 +1,4 @@
-package malasong;
+package other.malasong;
 
 import java.util.Scanner;
 

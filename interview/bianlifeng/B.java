@@ -1,4 +1,4 @@
-package exam.bianlifeng;
+package interview.bianlifeng;
 
 import java.util.ArrayList;
 import java.util.Arrays;

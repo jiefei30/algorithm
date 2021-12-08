@@ -1,4 +1,4 @@
-package attack_on_offer;
+package other.attack_on_offer;
 
 import java.util.Scanner;
 

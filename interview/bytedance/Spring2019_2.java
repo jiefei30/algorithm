@@ -1,4 +1,4 @@
-package exam.bytedance;
+package interview.bytedance;
 
 import java.util.Scanner;
 

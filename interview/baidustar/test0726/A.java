@@ -1,4 +1,4 @@
-package baidustar.test0726;
+package interview.baidustar.test0726;
 
 import java.util.Scanner;
 
